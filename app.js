@@ -1,11 +1,19 @@
 const readline = require('readline');
+const async = require('async');
+const chalk = require('chalk');
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-rl.question('What do you think of Node.js? ', answer => {
-  console.log(`Thank you for your valuable feedback: ${answer}`);
-  rl.close();
+async.forever((next) => {
+  rl.question('> ', answer => {
+    if (answer === 'exit') {
+      rl.close();
+    } else {
+      console.log(`You said: ${chalk.green.bold(answer)}`);
+      next();
+    }
+  });
 });
