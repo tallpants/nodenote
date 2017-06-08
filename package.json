@@ -9,6 +9,7 @@
   "author": "Adithya Reddy <adithyakreddy6@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^1.1.3",
     "nedb": "^1.8.0"
   }
 }
