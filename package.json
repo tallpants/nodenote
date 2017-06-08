@@ -2,7 +2,9 @@
   "name": "nodenote",
   "version": "1.0.0",
   "main": "app.js",
-  "start": "node app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
   "repository": "git@github.com:tallpants/nodenote",
   "author": "Adithya Reddy <adithyakreddy6@gmail.com>",
   "license": "MIT",
