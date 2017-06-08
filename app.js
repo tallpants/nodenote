@@ -10,32 +10,61 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+function exit() {
+  rl.close();
+  process.exit(0);
+}
+
+function printLogs(next) {
+  db.find({}, (err, docs) => {
+    if (!err) {
+      if (docs.length === 0) {
+        console.log(`${chalk.yellow('No logs found')}`);
+        next();
+      } else {
+        console.log();
+        for (const doc of docs) {
+          console.log(`${chalk.green.bold(doc.timestamp)} - ${doc.text}`);
+        }
+        console.log();
+      }
+    }
+    next();
+  });
+}
+
+function clearLogs(next) {
+  db.remove({}, { multi: true }, err => {
+    if (err) {
+      console.error(err);
+    }
+    next();
+  });
+}
+
+function log(text, next) {
+  db.insert({ text, timestamp: new Date() }, (err, newDoc) => {
+    if (err) {
+      console.error(err);
+    }
+    next();
+  });
+}
+
 async.forever((next) => {
   rl.question('> ', text => {
     switch (text) {
       case '!exit':
-        rl.close();
-        process.exit(0);
+        exit();
         break;
-      case '!log':
-        console.log();
-        db.find({}, (err, docs) => {
-          if (!err) {
-            for (const doc of docs) {
-              console.log(`${chalk.green.bold(doc.timestamp)} - ${doc.text}`);
-            }
-            console.log();
-            next();
-          }
-        });
+      case '!logs':
+        printLogs(next);
+        break;
+      case '!clearlogs':
+        clearLogs(next);
         break;
       default:
-        db.insert({ text, timestamp: new Date() }, (err, newDoc) => {
-          if (err) {
-            console.log(err);
-          }
-          next();
-        });
+        log(text, next);
         break;
     }
   });
