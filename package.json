@@ -10,7 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "async": "^2.4.1",
-    "nedb": "^1.8.0",
-    "terminal-kit": "^1.10.2"
+    "nedb": "^1.8.0"
   }
 }
