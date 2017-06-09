@@ -51,7 +51,7 @@ function log(text, next) {
   });
 }
 
-async.forever((next) => {
+async.forever(next => {
   rl.question('> ', text => {
     switch (text) {
       case '!exit':
