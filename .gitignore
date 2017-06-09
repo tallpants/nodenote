@@ -58,3 +58,4 @@ typings/
 .env
 
 store.db
+nano.save
