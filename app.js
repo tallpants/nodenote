@@ -21,7 +21,7 @@ dbProvider.initDb()
             notes.ls(next);
             break;
           case 'new':
-            notes.newNote(next);
+            notes.new(next);
             break;
           case 'rmall':
             notes.rmall(next);
