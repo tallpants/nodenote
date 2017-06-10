@@ -14,7 +14,8 @@ dbProvider.initDb()
   .then(() => {
     async.forever(next => {
       rl.question('> ', answer => {
-        switch (answer.split(' ')[0]) {
+        let answerStrings = answer.split(' ');
+        switch (answerStrings[0]) {
           case 'exit':
             process.exit(0);
           case 'ls':
@@ -26,7 +27,14 @@ dbProvider.initDb()
           case 'rmall':
             notes.rmall(next);
             break;
+          case 'view':
+            notes.view(answerStrings[1], next);
+            break;
+          case 'dump':
+            notes.dump(next);
+            break;
           default:
+            notes.view(answer, next);
             console.log('?');
             next();
         }
