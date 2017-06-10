@@ -27,16 +27,11 @@ dbProvider.initDb()
           case 'rmall':
             notes.rmall(next);
             break;
-          case 'view':
-            notes.view(answerStrings[1], next);
-            break;
           case 'dump':
             notes.dump(next);
             break;
           default:
-            notes.view(answer, next);
-            console.log('?');
-            next();
+            notes.view(answerStrings[0], next);
         }
       });
     });
