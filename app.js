@@ -21,6 +21,7 @@ dbProvider.initDb()
           case 'ls':
             notes.ls(next);
             break;
+          case 'create':
           case 'new':
             notes.create(next);
             break;
@@ -29,6 +30,12 @@ dbProvider.initDb()
             break;
           case 'dump':
             notes.dump(next);
+            break;
+          case 'edit':
+            notes.edit(answerStrings[1], next);
+            break;
+          case 'view':
+            notes.view(answerStrings[1], next);
             break;
           default:
             notes.view(answerStrings[0], next);
