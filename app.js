@@ -14,7 +14,7 @@ dbProvider.initDb()
   .then(() => {
     async.forever(next => {
       rl.question('> ', answer => {
-        switch (answer) {
+        switch (answer.split(' ')[0]) {
           case 'exit':
             process.exit(0);
           case 'ls':
