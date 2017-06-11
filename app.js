@@ -37,6 +37,9 @@ dbProvider.initDb()
           case 'view':
             notes.view(answerStrings[1], next);
             break;
+          case 'rm':
+            notes.rm(answerStrings[1], next);
+            break;
           default:
             notes.view(answerStrings[0], next);
         }
