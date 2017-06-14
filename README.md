@@ -4,7 +4,7 @@ NodeNote is a CLI notes app built with Node.js and NeDB that uses Unix-style com
 
 ## Demo
 
-[![asciicast](https://asciinema.org/a/9qe0hvjzdgqzkxtu9ygoenn3o.png)](https://asciinema.org/a/9qe0hvjzdgqzkxtu9ygoenn3o)
+[![asciicast](https://asciinema.org/a/124653.png)](https://asciinema.org/a/124653)
 
 ## Installing
 
